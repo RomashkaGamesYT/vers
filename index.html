@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vers Design — студия дизайна</title>
+  <meta name="description" content="Vers Design — брендинг, айдентика, веб-дизайн. Контакты: @necrucken, канал https://t.me/versdsgn" />
+  <link rel="icon" href="assets/logo.png" />
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b0c0f;
+      --bg-soft:#111319;
+      --text:#e6e6e6;
+      --muted:#a7adba;
+      --brand:#7cf0d1;
+      --brand-2:#7ca8f0;
+      --card:#161a22;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:"Manrope",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text); background:linear-gradient(180deg,#0a0c11 0%,#0b0c0f 60%,#0b0c0f 100%);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    .container{width:min(1120px,92%); margin:0 auto}
+    header.site-header{position:sticky; top:0; z-index:20; backdrop-filter:saturate(180%) blur(12px); background:rgba(11,12,15,.5); border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex; align-items:center; justify-content:space-between; height:72px}
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--text)}
+    .brand img{width:34px;height:34px;object-fit:contain}
+    .brand-name{font-weight:800}
+    .menu{display:flex; gap:22px; align-items:center}
+    .menu a{color:var(--text); text-decoration:none; opacity:.95}
+    .burger{display:none; background:none; border:0; cursor:pointer}
+    .burger span{display:block; width:22px; height:2px; background:#fff; margin:4px 0}
+
+    /* Hero */
+    .hero{position:relative; height:min(78vh,760px); display:grid; place-items:center; overflow:hidden; background: linear-gradient(180deg,#0a0c11 0%,#0b0c0f 100%);}
+    .hero-overlay{position:relative; text-align:center; padding:24px; z-index:1; max-width:920px}
+    .hero-logo{width:96px; height:96px; object-fit:contain; margin:0 auto 16px; filter:drop-shadow(0 8px 20px rgba(0,0,0,.45))}
+
+    h1{font-size:clamp(28px,5vw,52px);font-weight:800;margin:0 0 8px}
+    p.lead{color:var(--muted); margin:0 0 14px}
+    .cta-row{display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
+    .btn{
+      display:inline-block; padding:12px 18px; border-radius:12px;
+      background:linear-gradient(90deg,var(--brand),var(--brand-2));
+      color:#081018; font-weight:800; text-decoration:none; box-shadow:var(--shadow);
+      transition:transform .18s ease, filter .18s ease;
+    }
+    .btn:hover{transform:translateY(-3px)}
+    .btn-ghost{background:transparent; border:1px solid rgba(255,255,255,.08); color:var(--text)}
+
+    /* Sections */
+    .section{padding:68px 0}
+    .section.muted{background:var(--bg-soft)}
+    h2{font-size:clamp(20px,3.2vw,34px);font-weight:800;margin:0 0 12px}
+    .grid-2{display:grid; grid-template-columns:1.3fr .7fr; gap:36px; align-items:start}
+    .bullets{list-style:none; padding:0; margin:14px 0 0; display:grid; gap:10px}
+    .bullets li{position:relative; padding-left:28px}
+    .bullets li::before{content:""; position:absolute; left:0; top:8px; width:12px; height:12px; border-radius:6px; background:linear-gradient(90deg,var(--brand),var(--brand-2))}
+    .card{background:var(--card); border:1px solid rgba(255,255,255,.06); border-radius:14px; padding:18px; box-shadow:var(--shadow)}
+
+    /* Services */
+    .services{display:grid; grid-template-columns:repeat(4,1fr); gap:14px}
+    .service{padding:16px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01)); border:1px solid rgba(255,255,255,.04)}
+    .service h3{margin:0 0 6px}
+
+    /* Masonry */
+    .masonry{columns:1; column-gap:14px}
+    @media(min-width:560px){ .masonry{columns:2} }
+    @media(min-width:960px){ .masonry{columns:3} }
+    .tile{display:inline-block; width:100%; margin:0 0 14px; position:relative; border-radius:12px; overflow:hidden; text-decoration:none; color:#fff; border:1px solid rgba(255,255,255,.06)}
+    .tile img{width:100%; height:auto; display:block; transition:transform .4s ease}
+    .tile span{position:absolute; left:10px; bottom:10px; background:rgba(0,0,0,.45); padding:8px 10px; border-radius:10px; font-size:14px; backdrop-filter:blur(6px)}
+    .tile:hover img{transform:scale(1.03)}
+
+    /* Contact */
+    .contact{display:grid; grid-template-columns:1.1fr .9fr; gap:28px; align-items:start}
+    form.form{display:grid; gap:10px}
+    .form label{display:grid; gap:6px; font-weight:600}
+    input, textarea{width:100%; padding:12px 14px; border-radius:10px; border:1px solid rgba(255,255,255,.12); background:#0f131a; color:var(--text); outline:none}
+    input:focus, textarea:focus{border-color:var(--brand)}
+    .form-note{color:var(--muted); font-size:13px}
+
+    /* Footer */
+    footer.site-footer{border-top:1px solid rgba(255,255,255,.06); background:#0a0c11; padding:22px 0 28px; margin-top:40px}
+    .footer{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap}
+    .brand-footer{display:flex; align-items:center; gap:10px; font-weight:800}
+    .brand-footer img{width:26px; height:26px; object-fit:contain}
+    .footer-links, .socials{display:flex; gap:12px}
+    .tiny{color:var(--muted); text-align:center; margin-top:16px; font-size:13px}
+
+    /* Responsive */
+    @media(max-width:980px){
+      .grid-2, .contact{grid-template-columns:1fr}
+      .services{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:760px){
+      .menu{display:none}
+      .burger{display:block}
+      .services{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#">
+        <img src="assets/logo.png" alt="Vers Design logo">
+        <span class="brand-name">Vers Design</span>
+      </a>
+      <nav class="menu" aria-label="Главное меню">
+        <a href="#about">О нас</a>
+        <a href="#services">Услуги</a>
+        <a href="#portfolio">Портфолио</a>
+        <a href="#contact" class="btn btn-ghost">Связаться</a>
+      </nav>
+      <button class="burger" aria-label="Открыть меню" aria-expanded="false" onclick="toggleMenu(this)">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" aria-label="Герой-блок">
+    <div class="hero-overlay container">
+      <img class="hero-logo" src="assets/logo.png" alt="Логотип Vers Design">
+      <h1>Дизайн, который работает на ваш бренд</h1>
+      <p class="lead">Брендинг • Айдентика • Веб-дизайн • Презентации</p>
+      <div class="cta-row">
+        <a class="btn" href="tg://resolve?domain=necrucken&text=Здравствуйте%2C%20хочу%20обсудить%20проект" target="_blank" rel="noopener">Написать @necrucken</a>
+        <a class="btn btn-ghost" href="https://t.me/versdsgn" target="_blank" rel="noopener">Канал Vers Design</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section">
+    <div class="container grid-2">
+      <div>
+        <h2>О Vers Design</h2>
+        <p>Мы создаём цельные визуальные системы: от логотипа и фирменного стиля до интерфейсов и презентаций. Наш фокус — ясность, характер и бизнес-результат.</p>
+        <ul class="bullets">
+          <li>Айдентика и бренд-гайд</li>
+          <li>Дизайн сайтов и лендингов</li>
+          <li>Презентации и маркет-доки</li>
+          <li>Контент и визуалы для Telegram</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div style="display:flex;gap:12px;justify-content:space-between">
+          <div style="text-align:center"><div style="font-size:28px;font-weight:800">100+</div><div style="color:var(--muted)">проектов</div></div>
+          <div style="text-align:center"><div style="font-size:28px;font-weight:800">12</div><div style="color:var(--muted)">ниш</div></div>
+          <div style="text-align:center"><div style="font-size:28px;font-weight:800">5★</div><div style="color:var(--muted)">оценки</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="section muted">
+    <div class="container">
+      <h2>Услуги</h2>
+      <div class="services" style="margin-top:14px">
+        <article class="service"><h3>Брендинг</h3><p>Логотип, палитра, типографика и бренд-гайд.</p></article>
+        <article class="service"><h3>Веб-дизайн</h3><p>Лендинги, сайты, UI-системы.</p></article>
+        <article class="service"><h3>Презентации</h3><p>Инвест-питчи и коммерческие предложения.</p></article>
+        <article class="service"><h3>Контент</h3><p>Посты, обложки, сторис и анимации для Telegram.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="portfolio" class="section">
+    <div class="container">
+      <h2>Портфолио</h2>
+      <div class="masonry" style="margin-top:14px">
+        <a class="tile" href="#"><img src="assets/project1.png" alt="Проект 1"><span>Аватарка — Project A</span></a>
+        <a class="tile" href="#"><img src="assets/project2.png" alt="Проект 2"><span>Аватарка — Project B</span></a>
+        <a class="tile" href="#"><img src="assets/project3.png" alt="Проект 3"><span>Презентация — Project C</span></a>
+        <a class="tile" href="#"><img src="assets/project4.png" alt="Проект 4"><span>Бренд-гайд — Project D</span></a>
+        <a class="tile" href="#"><img src="assets/project5.png" alt="Проект 5"><span>UI-система — Project E</span></a>
+        <a class="tile" href="#"><img src="assets/project6.png" alt="Проект 6"><span>Контент — Project F</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section muted">
+    <div class="container contact">
+      <div>
+        <h2>Контакты</h2>
+        <p>Пишите в Telegram — отвечаем быстро.</p>
+        <div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap">
+          <a class="btn" href="tg://resolve?domain=necrucken&text=Здравствуйте%2C%20интересует%20дизайн" target="_blank" rel="noopener">@necrucken</a>
+          <a class="btn btn-ghost" href="https://t.me/versdsgn" target="_blank" rel="noopener">Канал Vers Design</a>
+        </div>
+      </div>
+
+      <form class="card form" onsubmit="return handleSubmit(event)" aria-label="Форма контакта">
+        <label>Имя
+          <input name="name" type="text" placeholder="Как к вам обращаться" required>
+        </label>
+        <label>Проект
+          <input name="project" type="text" placeholder="Коротко о задаче" required>
+        </label>
+        <label>Контакт
+          <input name="contact" type="text" placeholder="@username или email" required>
+        </label>
+        <label>Сообщение
+          <textarea name="message" rows="4" placeholder="Пара предложений о целях и сроках"></textarea>
+        </label>
+        <button class="btn" type="submit">Отправить</button>
+        <div class="form-note">Нажимая «Отправить», вы соглашаетесь на обработку данных.</div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer">
+      <div class="brand-footer"><img src="assets/logo.png" alt="logo"><span>Vers Design</span></div>
+      <nav class="footer-links" aria-label="Ссылки подвала">
+        <a href="#about">О нас</a>
+        <a href="#services">Услуги</a>
+        <a href="#portfolio">Портфолио</a>
+        <a href="#contact">Контакты</a>
+      </nav>
+      <div class="socials">
+        <a href="tg://resolve?domain=necrucken" target="_blank" rel="noopener">@necrucken</a>
+        <a href="https://t.me/versdsgn" target="_blank" rel="noopener">Канал</a>
+      </div>
+    </div>
+    <div class="container tiny">© <span id="year"></span> Vers Design. Все права защищены.</div>
+  </footer>
+
+  <script>
+    function toggleMenu(btn){
+      const menu = document.querySelector('.menu');
+      const open = getComputedStyle(menu).display !== 'none';
+      menu.style.display = open ? 'none' : 'flex';
+      btn.setAttribute('aria-expanded', String(!open));
+    }
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    async function handleSubmit(e){
+      e.preventDefault();
+      const fd = new FormData(e.target);
+      const name = (fd.get('name') || '').toString().trim();
+      const project = (fd.get('project') || '').toString().trim();
+      const contact = (fd.get('contact') || '').toString().trim();
+      const message = (fd.get('message') || '').toString().trim();
+
+      const text = `🟢 Новый запрос (Vers Design)\n— Имя: ${name}\n— Проект: ${project}\n— Контакт: ${contact}\n— Сообщение: ${message}`;
+
+      const tgDeep = 'tg://resolve?domain=necrucken&text=' + encodeURIComponent(text);
+      const tgWeb  = 'https://t.me/necrucken?text=' + encodeURIComponent(text);
+
+      if (navigator.clipboard && navigator.clipboard.writeText){
